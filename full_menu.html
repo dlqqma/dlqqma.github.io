@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>full_menu</title>
+    <style>
+.full_menu{position:absolute;top:50%;right:0;transform:translate(-50%,-50%);}
+input[id="menudot"] {display:none;}
+input[id="menudot"] + label {display:block;width:30px;height:20px;position:relative;cursor:pointer;}
+input[id="menudot"] + label span {display:block;position:absolute;width:100%;height:3px;border-radius:30px;background:#000;transition:all .35s;}
+input[id="menudot"] + label span:nth-child(1) {top:0;}
+input[id="menudot"] + label span:nth-child(2) {top:50%;transform:translateY(-50%);}
+input[id="menudot"] + label span:nth-child(3) {bottom:0;}
+/* input[id="menudot"]:checked + label span:nth-child(1) {top:50%;transform:translateY(-50%) rotate(45deg);}
+input[id="menudot"]:checked + label span:nth-child(2) {opacity:0;}
+input[id="menudot"]:checked + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);} */
+/* menu close */
+.full_menu_close{
+    display:none;
+    position:absolute;top:50%;right:0;transform:translate(-50%,-50%);}
+input[id="menudotClose"] {display:none;}
+input[id="menudotClose"] + label {display:block;width:30px;height:20px;position:relative;cursor:pointer;}
+input[id="menudotClose"] + label span {display:block;position:absolute;width:100%;height:3px;border-radius:30px;background:#000;transition:all .35s;}
+/* input[id="menudotClose"]:checked + label span:nth-child(1) {top:0;}
+input[id="menudotClose"]:checked + label span:nth-child(2) {top:50%;transform:translateY(-50%);}
+input[id="menudotClose"]:checked + label span:nth-child(3) {bottom:0;} */
+input[id="menudotClose"] + label span:nth-child(1) {top:50%;transform:translateY(-50%) rotate(45deg);}
+input[id="menudotClose"] + label span:nth-child(2) {opacity:0;}
+input[id="menudotClose"] + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);}
+
+.flex_wrap{
+    display:none;
+}
+
+.gnb_mobile_back{
+ display:none;
+}
+
+.back{
+    display:none;
+    position: fixed;
+    width:100%;
+    height:100vh;
+    background:#111;
+    z-index:1;
+}
+    </style>
+</head>
+<body>
+    <div class="full_menu">
+        <input type="checkbox" id="menudot">
+        <label for="menudot">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </div>
+    <div class="full_menu_close">
+        <input type="checkbox" id="menudotClose">
+        <label for="menudotClose">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </div>
+    <div class="back"></div>
+    <script>
+        $(document).ready(function(){
+        $(document).on('click','.full_menu',function(){$('.back').fadeIn(200),$('.gnb_mobile_back').fadeIn(200),$('.full_menu').fadeOut(200), $('.full_menu_close').fadeIn(300);
+        });
+        
+        $(document).on('click','.full_menu_close',function(){$('.full_menu_close').fadeOut(200),$('.back').fadeOut(200),$('.gnb_mobile_back').fadeOut(200), $('.full_menu').fadeIn(200);
+        });
+    
+    });
+    </script>
+    
+</body>
+</html>
